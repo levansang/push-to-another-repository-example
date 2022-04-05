@@ -43,7 +43,7 @@ runs:
     - ${{ inputs.destination-repository-name }}
     - ${{ inputs.destination-folder }}
     - ${{ inputs.user-email }}
-        - ${{ inputs.destination-github-username }}
+    - ${{ inputs.destination-github-username }}
     - ${{ inputs.target-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}

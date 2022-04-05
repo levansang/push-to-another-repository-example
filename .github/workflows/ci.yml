@@ -30,7 +30,7 @@ jobs:
         source-directory: output/
         destination-github-username: 'levansang'
         destination-repository-name: 'TestPushing01'
-        destination-repository-username: 'levansang'
+#        destination-repository-username: 'levansang'
         user-email: levansang8689@gmail.com
         commit-message: See ORIGIN_COMMIT from $GITHUB_REF
         target-branch: main
