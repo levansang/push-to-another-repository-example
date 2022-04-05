@@ -29,7 +29,7 @@ jobs:
       with:
         source_file: output/
         user_name: 'levansang'
-        destination_repo: 'TestPushing01'
+        destination_repo: 'levansang/TestPushing01'
 #        destination-repository-username: 'levansang'
         user_email: levansang8689@gmail.com
         commit_message: See ORIGIN_COMMIT from $GITHUB_REF
