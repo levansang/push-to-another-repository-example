@@ -7,10 +7,10 @@ inputs:
   destination-repository-name:
     description: 'Destination repository'
     required: true
-  destination_folder:
+  destination-folder:
     description: 'Directory to push the file to'
     required: false
-  user_email:
+  user-email:
     description: 'Email for the git commit'
     required: true
   destination-github-username:
@@ -19,19 +19,19 @@ inputs:
   target-branch:
     description: 'branch to push file to, defaults to main'
     required: false
-  destination_branch_create:
+  destination-branch-create:
     description: 'Destination branch to create for this commit'
     required: false
-  commit_message:
+  commit-message:
     description: 'A custom message for the commit'
     required: false
   rename:
     description: 'Rename the destination file'
     required: false
-  use_rsync:
+  use-rsync:
     description: 'Copy files/directories using rsync instead of cp. Experimental feature, please know your use case'
     required: false
-  git_server:
+  git-server:
     description: 'Git server host, default github.com'
     required: false
     default: github.com
@@ -41,15 +41,15 @@ runs:
   args:
     - ${{ inputs.source-directory }}
     - ${{ inputs.destination-repository-name }}
-    - ${{ inputs.destination_folder }}
-    - ${{ inputs.user_email }}
-    - ${{ inputs.destination-github-username }}
+    - ${{ inputs.destination-folder }}
+    - ${{ inputs.user-email }}
+        - ${{ inputs.destination-github-username }}
     - ${{ inputs.target-branch }}
     - ${{ inputs.destination-branch-create }}
     - ${{ inputs.commit-message }}
     - ${{ inputs.rename }}
     - ${{ inputs.use-rsync }}
-    - ${{ inputs.git-server }}
+        - ${{ inputs.git-server }}
 branding:
   icon: 'git-commit'
   color: 'green'
