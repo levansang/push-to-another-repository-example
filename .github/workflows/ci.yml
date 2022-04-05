@@ -8,29 +8,45 @@ on:
   pull_request:
     branches: [ main ]
 
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+##    container: pandoc/latex
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: check directory
+#      run: ls -al 
+##      - name: Install mustache (to update the date)
+##        run:  apk add ruby && gem install mustache
+#    - name: creates output
+#      run:  sh ./build.sh
+#    - name: Pushes to another repository
+#      id: push_directory
+#      uses: levansang/push-to-another-repository-example@main
+#      env:
+#        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+#      with:
+#        source-directory: output/
+#        destination-github-username: 'levansang'
+#        destination-repository-name: 'TestPushing01'
+#        user-email: levansang8689@gmail.com
+#        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+#        target-branch: main
+#    - name: Test get variable exported by push-to-another-repository
+#      run: echo $DESTINATION_CLONED_DIRECTORY
+
 jobs:
-  build:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-#    container: pandoc/latex
     steps:
-    - uses: actions/checkout@v2
-    - name: check directory
-      run: ls -al 
-#      - name: Install mustache (to update the date)
-#        run:  apk add ruby && gem install mustache
-    - name: creates output
-      run:  sh ./build.sh
-    - name: Pushes to another repository
-      id: push_directory
-      uses: levansang/push-to-another-repository-example@main
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-      with:
-        source-directory: output/
-        destination-github-username: 'levansang'
-        destination-repository-name: 'TestPushing01'
-        user-email: levansang8689@gmail.com
-        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-        target-branch: main
-    - name: Test get variable exported by push-to-another-repository
-      run: echo $DESTINATION_CLONED_DIRECTORY
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
