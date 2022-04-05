@@ -20,14 +20,14 @@ jobs:
         run:  sh ./build.sh
       - name: Pushes to another repository
         id: push_directory
-        uses: cpina/github-action-push-to-another-repository@main
+        uses: levansang/push-to-another-repository-example@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: output/
-          destination-github-username: 'cpina'
-          destination-repository-name: 'push-to-another-repository-output'
-          user-email: carles3@pina.cat
+          destination-github-username: 'levansang'
+          destination-repository-name: 'TestPushing01'
+          user-email: levansang8689@gmail.com
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
           target-branch: main
       - name: Test get variable exported by push-to-another-repository
