@@ -13,24 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 #    container: pandoc/latex
     steps:
-      - uses: actions/checkout@v2
-      - name: check directory
-        run: ls -al 
+    - uses: actions/checkout@v2
+    - name: check directory
+      run: ls -al 
 #      - name: Install mustache (to update the date)
 #        run:  apk add ruby && gem install mustache
-      - name: creates output
-        run:  sh ./build.sh
-      - name: Pushes to another repository
-        id: push_directory
-        uses: levansang/push-to-another-repository-example@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: output/
-          destination-github-username: 'levansang'
-          destination-repository-name: 'TestPushing01'
-          user-email: levansang8689@gmail.com
-          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: main
-      - name: Test get variable exported by push-to-another-repository
-        run: echo $DESTINATION_CLONED_DIRECTORY
+    - name: creates output
+      run:  sh ./build.sh
+    - name: Pushes to another repository
+      id: push_directory
+      uses: levansang/push-to-another-repository-example@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source-directory: output/
+        destination-github-username: 'levansang'
+        destination-repository-name: 'TestPushing01'
+        user-email: levansang8689@gmail.com
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-branch: main
+    - name: Test get variable exported by push-to-another-repository
+      run: echo $DESTINATION_CLONED_DIRECTORY
